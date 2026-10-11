@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="formulario">
+        <h1>Cadastro</h1>
+        <p>Preencha os campos abaixo.</p>
+
+        <form action="#" method="post">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"
+                   placeholder="Digite seu nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Digite seu e-mail" required>
+
+            <!-- 1. Campo telefone -->
+            <label for="telefone">Telefone:</label>
+            <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(11) 99999-9999"
+                pattern="\(\d{2}\) \d{4,5}-\d{4}"
+                title="Digite no formato (11) 99999-9999"
+                required
+            >
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha"
+                   minlength="6" placeholder="Mínimo de 6 caracteres"
+                   required>
+
+            <!-- 2. Confirmar senha -->
+            <label for="confirmar-senha">Confirmar senha:</label>
+            <input type="password" id="confirmar-senha"
+                   name="confirmar-senha"
+                   placeholder="Digite a senha novamente"
+                   required>
+
+            <p id="mensagem"></p>
+
+            <button type="submit" id="botao" disabled>
+                Cadastrar
+            </button>
+
+        </form>
+    </main>
+
+    <script>
+        const senha = document.getElementById("senha");
+        const confirmar = document.getElementById("confirmar-senha");
+        const botao = document.getElementById("botao");
+        const mensagem = document.getElementById("mensagem");
+
+        function verificarSenhas() {
+            if (confirmar.value === "") {
+                mensagem.textContent = "";
+                botao.disabled = true;
+            } else if (senha.value !== confirmar.value) {
+                mensagem.textContent = "As senhas não coincidem.";
+                botao.disabled = true;
+            } else {
+                mensagem.textContent = "As senhas coincidem!";
+                botao.disabled = false;
+            }
+        }
+
+        senha.addEventListener("input", verificarSenhas);
+        confirmar.addEventListener("input", verificarSenhas);
+    </script>
+
+</body>
+</html>

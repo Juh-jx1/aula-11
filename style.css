@@ -1,0 +1,101 @@
+
+/* 4. Tema escuro com variáveis CSS */
+:root {
+    --cor-fundo: #121826;
+    --cor-formulario: #1f2937;
+    --cor-texto: #f9fafb;
+    --cor-destaque: #8b5cf6;
+    --cor-borda: #4b5563;
+    --cor-erro: #f87171;
+    --cor-sucesso: #4ade80;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.formulario {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--cor-formulario);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--cor-destaque);
+}
+
+.formulario p {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-size: 15px;
+}
+
+/* Destaque do campo selecionado */
+input:focus {
+    outline: 2px solid var(--cor-destaque);
+}
+
+/* Campo válido */
+input:valid {
+    border-color: var(--cor-sucesso);
+}
+
+/* Campo inválido depois de preenchido */
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--cor-erro);
+}
+
+#mensagem {
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--cor-destaque);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 3. Estilo para botão desabilitado */
+button:disabled {
+    background-color: #4b5563;
+    color: #d1d5db;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+    .formulario {
+        padding: 20px;
+    }
+}
